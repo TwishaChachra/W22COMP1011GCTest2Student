@@ -2,12 +2,18 @@
 Student Number - 200474646 */
 package com.example.w22comp1011gctest2student;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+
+import java.util.ArrayList;
 
 public class TableViewController {
     @FXML
@@ -26,7 +32,7 @@ public class TableViewController {
     private TableView<Customer> tableView;
 
     @FXML
-    private TableColumn<Customer, Integer> idColumn;
+    private TableColumn<Customer, String> idColumn;
 
     @FXML
     private TableColumn<Customer, String> firstNameColumn;
@@ -61,6 +67,17 @@ public class TableViewController {
     @FXML
     private void loadAllCustomers()
     {
-        System.out.println("called method loadAllCustomers");
+
+        ObservableList<Customer> customers = FXCollections.observableArrayList(Customer.loadDataFromJson());
+        tableView.setItems(customers);
+
+    }
+
+    public void initialize(){
+        idColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("customerId"));
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("lastName"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
+        totalPurchaseColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("totalPurchaseColumn"));
     }
 }

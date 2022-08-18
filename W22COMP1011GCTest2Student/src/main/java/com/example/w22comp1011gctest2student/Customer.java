@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
+    private String totalPurchase;
     public Customer(int customerId, String firstName, String lastName, String phone, ArrayList<Product> products) {
         this.customerId = customerId;
         this.firstName = firstName;
@@ -60,12 +61,15 @@ public class Customer {
     private String phone;
     private ArrayList<Product> products;
 
-    public double amountOfTotalPurchases(){
-        List<Customer> customers = jsonClass.loadDataFromJson();
+    public double amountOfTotalPurchases() {
+        ArrayList<Customer> customers = jsonClass.loadDataFromJson();
+        double totalAmount = 0;
         for (Customer c : customers) {
-            System.out.println(c.getFirstName());
+            for(Product p : c.getProducts()){
+                totalAmount += p.getSalePrice();
+            }
         }
-        return 0.0;
-        }
+ return totalAmount;
+    }
 
 }

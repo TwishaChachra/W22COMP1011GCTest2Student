@@ -6,6 +6,10 @@ public class Product {
   private int sku;
   private String name;
 
+  public double getSalePrice() {
+    return salePrice;
+  }
+
   public Product(int sku, String name, double salePrice, double regularPrice, String urlImage) {
     this.sku = sku;
     this.name = name;
