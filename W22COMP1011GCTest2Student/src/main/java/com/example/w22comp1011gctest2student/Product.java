@@ -1,3 +1,5 @@
+/* Name - Twisha Chachra
+Student Number - 200474646 */
 package com.example.w22comp1011gctest2student;
 
 public class Product {
@@ -38,7 +40,7 @@ public class Product {
 
   @java.lang.Override
   public java.lang.String toString() {
-    String formattedSalesPrice = String.format("%.2f", salePrice)
+    String formattedSalesPrice = String.format("%.2f", salePrice);
     return name + "-$" + formattedSalesPrice;
   }
 }

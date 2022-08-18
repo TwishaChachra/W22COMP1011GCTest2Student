@@ -1,4 +1,9 @@
+/* Name - Twisha Chachra
+Student Number - 200474646 */
 package com.example.w22comp1011gctest2student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Customer {
     public Customer(int customerId, String firstName, String lastName, String phone, ArrayList<Product> products) {
@@ -54,5 +59,13 @@ public class Customer {
     private String lastName;
     private String phone;
     private ArrayList<Product> products;
+
+    public double amountOfTotalPurchases(){
+        List<Customer> customers = jsonClass.loadDataFromJson();
+        for (Customer c : customers) {
+            System.out.println(c.getFirstName());
+        }
+        return 0.0;
+        }
 
 }
